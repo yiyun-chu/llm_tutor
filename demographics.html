@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Study Session — Welcome</title>
+  <title>Study Session — Pre-test</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
@@ -18,12 +18,12 @@
   <main class="stage">
     <section class="screen active">
       <div class="card narrow">
-        <p class="eyebrow">Welcome</p>
-        <h1>Before we begin</h1>
-        <div id="intro-body" class="prose"></div>
-        <p class="irb" id="irb-line"></p>
+        <p class="eyebrow">Part 1 of 3</p>
+        <h1>Pre-test</h1>
+        <p class="prose muted">A few quick questions before the video. You won't be able to return to this page.</p>
+        <div id="demographics-questions" class="qlist"></div>
         <div class="actions">
-          <button id="next" class="btn primary">Next →</button>
+          <button id="next" class="btn primary">Continue to the video →</button>
         </div>
       </div>
     </section>
@@ -33,6 +33,7 @@
   <script src="js/content.js"></script>
   <script src="js/flow.js"></script>
   <script src="js/logger.js"></script>
-  <script src="js/intro.js"></script>
+  <script src="js/survey.js"></script>
+  <script src="js/demographics.js"></script>
 </body>
 </html>

@@ -21,9 +21,7 @@ window.CONTENT = {
           about the material at any time.</li>
       <li>Answer a <strong>post-test</strong>.</li>
     </ol>
-    <p>During the learning activity, an AI assistant will be available to explain concepts and 
-    point you in the right direction, but it is up to you how much you choose to use it. Please
-    do not refresh or close this tab until you reach the end screen so that your responses are saved.</p>
+    <p>Please do not refresh or close this tab until you reach the end screen so that your responses are saved.</p>
     <p>The whole session takes about <strong>30-40 minutes</strong>.</p>
   `,
 
