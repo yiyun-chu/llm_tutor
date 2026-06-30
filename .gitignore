@@ -9,7 +9,6 @@ backend/model/*.pkl
 # secrets
 .env
 *.env
-*.md
 
 # python
 __pycache__/
