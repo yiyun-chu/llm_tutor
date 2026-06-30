@@ -144,6 +144,16 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: 1.9rem; margin: 0 0
   max-width: 84%; padding: 10px 14px; border-radius: 14px;
   font-size: .94rem; white-space: pre-wrap; word-wrap: break-word;
 }
+.bubble.attention {
+  animation: chatPulse 1s ease-in-out 5;
+  outline: 3px solid #ffcc00;
+  box-shadow: 0 0 18px rgba(255, 204, 0, 0.9);
+}
+@keyframes chatPulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.03);}
+  100% { transform: scale(1);}
+}
 .msg-assistant .bubble { background: var(--bubble-bot); color: var(--ink); border-bottom-left-radius: 4px; }
 .msg-user .bubble { background: var(--bubble-me); color: #fff; border-bottom-right-radius: 4px; }
 

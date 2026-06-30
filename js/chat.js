@@ -76,6 +76,36 @@ window.Chat = (function () {
     });
   }
 
+  function proactiveOpen(sectionIndex, trigger, extra = {}) {
+    const section = CT.VIDEO_SECTIONS[sectionIndex];
+    const tmpl = CT.PROACTIVE_PROMPTS[sectionIndex] || CT.PROACTIVE_PROMPTS[0];
+    const text = tmpl.replace("{concept}", section ? section.title : "this part");
+
+    // Add the message and capture the bubble element
+    const bubble = addMessage("assistant", text);
+
+    // Pause the video so the student notices the intervention
+    const video = document.querySelector("video");
+    if (video && !video.paused) {
+      video.pause();
+    }
+
+    // Highlight the new assistant message
+    bubble.classList.add("attention");
+
+    setTimeout(() => {
+      bubble.classList.remove("attention");
+    }, 5000);
+
+    Logger.log("chat_bot_initiation", {
+      text, trigger, section_index: sectionIndex,
+      section_id: section ? section.id : null,
+      section_title: section ? section.title : null,
+      video_time_sec: Study.videoTime(),
+      paused_video: true, ...extra,
+    });
+  }
+
   async function getReply(trigger) {
     busy = true; sendBtn.disabled = true;
     const typing = showTyping();
