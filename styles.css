@@ -94,7 +94,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: 1.9rem; margin: 0 0
   border: 1px solid var(--line); border-radius: 12px;
   padding: 12px 22px 18px; margin: 0 0 18px; background: #fcfdfe;
 }
-.question legend { font-weight: 700; font-size: 1rem; line-height: 1.3; padding: 0; margin-bottom: 6px; }
+.question legend { font-weight: 700; font-size: 1.2rem; line-height: 1.3; padding: 0; margin-bottom: 6px; }
 .qnum {
   display: inline-grid; place-items: center; width: 24px; height: 24px;
   background: var(--accent); color: #fff; border-radius: 50%;
