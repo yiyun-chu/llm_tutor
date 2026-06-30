@@ -1,6 +1,5 @@
 /* ============================================================================
- * CONFIG  —  edit this file to set up your study. Nothing secret goes here.
- * (The Qwen / HF API key lives ONLY on the backend, never in this repo.)
+ * CONFIG
  * ==========================================================================*/
 
 window.CONFIG = {
@@ -36,8 +35,8 @@ window.CONFIG = {
   MAX_CHAT_CHARS: 1000,
 
   // ---- Study metadata -----------------------------------------------------
-  STUDY_NAME: "Video Learning + AI Tutor Study",
-  IRB_LINE: "This study has been reviewed by your institution's IRB. Participation is voluntary.",
+  STUDY_NAME: "Video Learning",
+  IRB_LINE: "Participation is voluntary. Please take your time to complete the task.",
 };
 
 /* ----------------------------------------------------------------------------

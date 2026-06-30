@@ -1,6 +1,5 @@
 /* ============================================================================
- * CONTENT  —  your study material. Edit freely.
- *
+ * CONTENT
  *  - PRETEST / POSTTEST: question objects. `answer` is the index of the correct
  *    option and is used ONLY for client-side scoring in the logs. It is NEVER
  *    sent to the chatbot. (The transcript the LLM sees lives on the backend.)
@@ -22,11 +21,10 @@ window.CONTENT = {
           about the material at any time.</li>
       <li>Answer a <strong>post-test</strong>.</li>
     </ol>
-    <p>The assistant can explain concepts and point you in the right direction,
-       but it will not give you answers to the test questions — that part is
-       up to you. Please do not refresh or close the tab until you reach the
-       end screen, so your responses are saved.</p>
-    <p>The whole session takes about <strong>20–30 minutes</strong>.</p>
+    <p>During the learning activity, an AI assistant will be available to explain concepts and 
+    point you in the right direction, but it is up to you how much you choose to use it. Please
+    do not refresh or close this tab until you reach the end screen so that your responses are saved.</p>
+    <p>The whole session takes about <strong>30-40 minutes</strong>.</p>
   `,
 
   // -------------------------------------------------------------- PRETEST ---
@@ -90,5 +88,5 @@ window.CONTENT = {
 
   // First thing the bot says when the study view opens (all conditions).
   // For PASSIVE (condition 1) this is the ONLY unsolicited message.
-  GREETING: "Hi! I'm your study assistant. Ask me anything about the video and I'll help you make sense of it. I won't give away test answers, but I'm happy to explain the ideas.",
+  GREETING: "Hi! I'm your study assistant. Ask me anything about the video and I'll help you make sense of it.",
 };
