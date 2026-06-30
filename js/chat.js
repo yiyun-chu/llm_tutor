@@ -9,7 +9,7 @@
  *
  * Used only on study.html, which provides window.Study (videoTime/currentSection).
  * ==========================================================================*/
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+{/* <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> */}
 
 window.Chat = (function () {
   const C = window.CONFIG;
@@ -34,13 +34,22 @@ window.Chat = (function () {
     const bubble = document.createElement("div");
     bubble.className = "bubble";
 
-    bubble.innerHTML = marked.parse(text);
+    // Render simple Markdown
+    bubble.innerHTML = text
+      // Bold: **text**
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      // Italics: *text*
+      .replace(/\*(.*?)\*/g, "<em>$1</em>")
+      // Line breaks
+      .replace(/\n/g, "<br>");
 
     wrap.appendChild(bubble);
     messagesEl.appendChild(wrap);
     messagesEl.scrollTop = messagesEl.scrollHeight;
 
+    // Keep the original text in the conversation history
     history.push({ role, content: text });
+
     return bubble;
   }
 
