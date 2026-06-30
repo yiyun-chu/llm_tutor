@@ -12,7 +12,7 @@ window.CONFIG = {
   //                     "https://yourname-studybackend.hf.space"
   // NOTE: GitHub Pages is HTTPS, so a deployed backend MUST be HTTPS too.
   // Leave "" to run frontend-only (chat disabled; logs kept + downloadable).
-  BACKEND_URL: "http://localhost:8000",
+  BACKEND_URL: "https://athenachu-llm-tutor.hf.space",
 
   // ---- Video (Dropbox) ----------------------------------------------------
   // Paste your Dropbox share link; "?dl=0" is auto-rewritten to a stream URL.
