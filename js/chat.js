@@ -29,8 +29,19 @@ window.Chat = (function () {
   function addMessage(role, text) {
     const wrap = document.createElement("div");
     wrap.className = `msg msg-${role}`;
+
     const bubble = document.createElement("div");
-    bubble.className = "bubble"; bubble.textContent = text;
+    bubble.className = "bubble";
+
+    // Render simple Markdown
+    bubble.innerHTML = text
+      // Bold: **text**
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      // Italics: *text*
+      .replace(/\*(.*?)\*/g, "<em>$1</em>")
+      // Line breaks
+      .replace(/\n/g, "<br>");
+
     wrap.appendChild(bubble);
     messagesEl.appendChild(wrap);
     messagesEl.scrollTop = messagesEl.scrollHeight;
