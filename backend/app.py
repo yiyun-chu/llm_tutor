@@ -40,7 +40,7 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 QWEN_API_KEY  = os.getenv("QWEN_API_KEY", "") or os.getenv("HF_TOKEN", "")
 QWEN_BASE_URL = os.getenv("QWEN_BASE_URL", "https://router.huggingface.co/v1")
-QWEN_MODEL    = os.getenv("QWEN_MODEL", "Qwen/Qwen3.6-27B:featherless-ai")
+QWEN_MODEL    = os.getenv("QWEN_MODEL", "Qwen/Qwen3.5-4B:featherless-ai")
 MODEL_PATH    = os.getenv("SURVIVAL_MODEL_PATH", "./model/survival_model.pkl")
 CORS_ORIGINS  = os.getenv("CORS_ORIGINS", "*").split(",")
 
@@ -99,7 +99,8 @@ def build_system_prompt() -> str:
         "encourage them to reason it through and offer a conceptual hint instead.\n"
         "2. Never write the student's answers for them or do their assessment work.\n"
         "3. Stay on the lecture's topics; gently redirect off-topic requests.\n"
-        "4. Be concise, warm, and encouraging.\n\n"
+        "4. Always keep the response short and concise, keep it less than 150 words.\n"
+        "5. Be concise, warm, and encouraging.\n\n"
         f"TRANSCRIPT:\n{transcript}"
         f"{quiz_block}"
     )
