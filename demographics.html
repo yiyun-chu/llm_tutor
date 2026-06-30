@@ -10,47 +10,59 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
-  <style>
-    .card.narrow {
-      max-width: 1050px;
-      width: 92vw;
-    }
-    .stage {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-    }
+<style>
+  html,
+  body {
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
 
-    .screen {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  .stage {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+  }
 
-    .card.narrow {
-        width: min(1050px, 92vw);
-        margin: 0 auto;
-    }
+  .screen,
+  .screen.active {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
 
-    #demographics-questions .question legend {
-      font-size: 1.45rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
+  .card.narrow {
+    width: min(1050px, calc(100vw - 4rem));
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    #demographics-questions .option {
-      font-size: 1rem;
-      line-height: 1.45;
-    }
+  #demographics-questions .question legend {
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
 
-    #demographics-questions .question {
-      padding: 2rem;
-    }
+  #demographics-questions .option {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
 
-    #demographics-questions .qnum {
-      font-size: 1.1rem;
-    }
-  </style>
+  #demographics-questions .question {
+    padding: 2rem;
+  }
+
+  #demographics-questions .qnum {
+    font-size: 1.1rem;
+  }
+</style>
 </head>
 
 <body>
