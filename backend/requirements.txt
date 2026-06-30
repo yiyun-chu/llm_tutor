@@ -1,0 +1,10 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+openai>=1.30
+pydantic>=2.6
+# Add whatever your trained survival model needs to unpickle, e.g.:
+# scikit-learn>=1.4
+# scikit-survival>=0.22
+# lifelines>=0.28
+# numpy>=1.26
+# pandas>=2.2

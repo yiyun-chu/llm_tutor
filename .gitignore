@@ -1,0 +1,21 @@
+# collected participant data — NEVER commit this
+backend/data/*.jsonl
+backend/data/assignments.json
+backend/data_test/
+
+# trained model weights (often large / sensitive)
+backend/model/*.pkl
+
+# secrets
+.env
+*.env
+*.md
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# os
+.DS_Store

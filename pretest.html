@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Session — Pre-test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Study Session</div>
+    <div class="rid">ID&nbsp;<span id="rid-value" class="mono">…</span></div>
+  </header>
+
+  <main class="stage">
+    <section class="screen active">
+      <div class="card narrow">
+        <p class="eyebrow">Part 1 of 3</p>
+        <h1>Pre-test</h1>
+        <p class="prose muted">A few quick questions before the video. You won't be able to return to this page.</p>
+        <div id="pretest-questions" class="qlist"></div>
+        <div class="actions">
+          <button id="next" class="btn primary">Continue to the video →</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/flow.js"></script>
+  <script src="js/logger.js"></script>
+  <script src="js/survey.js"></script>
+  <script src="js/pretest.js"></script>
+</body>
+</html>

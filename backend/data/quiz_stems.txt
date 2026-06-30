@@ -1,0 +1,6 @@
+# OPTIONAL. Paste ONLY the question wording (stems) here — NEVER the answers.
+# This helps the assistant recognise assessment questions so it can refuse to
+# answer them. Leave blank if you prefer; the guardrail works without it.
+#
+# 1. <pre/post-test question text, no options needed, no correct answer>
+# 2. ...

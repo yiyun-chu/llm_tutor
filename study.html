@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Session — Lecture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Study Session</div>
+    <div class="rid">ID&nbsp;<span id="rid-value" class="mono">…</span></div>
+  </header>
+
+  <main class="stage">
+    <section class="screen wide active">
+      <div class="study-grid">
+        <div class="video-pane">
+          <video id="lecture-video" controls preload="metadata" playsinline></video>
+          <p class="hint muted">Watch the lecture. Ask the assistant anything on the right.</p>
+          <button id="next" class="btn primary">I've finished — go to post-test →</button>
+        </div>
+
+        <aside class="chat-pane">
+          <div class="chat-head"><span class="dot-live"></span> Study assistant</div>
+          <div id="chat-messages" class="chat-messages"></div>
+          <div class="chat-input-row">
+            <textarea id="chat-input" rows="1" placeholder="Ask about anything in the video…"></textarea>
+            <button id="chat-send" class="btn send">Send</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/flow.js"></script>
+  <script src="js/logger.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/study.js"></script>
+</body>
+</html>
