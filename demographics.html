@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Study Session — Pre-test</title>
+  <title>Study Session — Demographic Survey</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .card.narrow {
+      max-width: 1050px;
+      width: 92vw;
+    }
+
+    #demographics-questions .question legend {
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    #demographics-questions .option {
+      font-size: 1.2rem;
+      line-height: 1.45;
+    }
+
+    #demographics-questions .question {
+      padding: 2rem;
+    }
+
+    #demographics-questions .qnum {
+      font-size: 1.1rem;
+    }
+  </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="brand">Study Session</div>
@@ -19,11 +47,16 @@
     <section class="screen active">
       <div class="card narrow">
         <p class="eyebrow">Part 1 of 3</p>
-        <h1>Pre-test</h1>
-        <p class="prose muted">A few quick questions before the video. You won't be able to return to this page.</p>
+        <h1>Demographic Survey</h1>
+
+        <p class="prose muted">
+          A few quick questions before the pre-test. You won't be able to return to this page.
+        </p>
+
         <div id="demographics-questions" class="qlist"></div>
+
         <div class="actions">
-          <button id="next" class="btn primary">Continue to the video →</button>
+          <button id="next" class="btn primary">Continue to pre-test →</button>
         </div>
       </div>
     </section>
