@@ -1,6 +1,5 @@
 /* ============================================================================
  * SURVEY  —  shared rendering/validation/scoring for the pre- and post-tests.
- * Answer keys are used only here for client-side scoring; never sent to the LLM.
  * ==========================================================================*/
 
 window.Survey = (function () {

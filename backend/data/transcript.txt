@@ -2,317 +2,237 @@
 # The chatbot uses this (and ONLY this) as its source of truth about the
 # video's content, so it can answer questions about concepts the student saw.
 
-[00:00] What does it take to find a guest in a hotel?
-[00:08] We might be given the floor, then the wing, then the room number.
-[00:14] Finding the location of an electron in an atom is maybe not so different.
-[00:20] This is Real Chem.
-[00:22] Real Chem is a research program that focuses on the location of electrons in a cell.
-[00:29] Understanding the locations of electrons using different models is something I struggled with during college.
-[00:37] It took a while before it clicked.
-[00:40] The key for me was to break it down into some basic steps and not lose sight of the system I was using to find them.
-[00:48] If you find this hard, don't worry. Stay with it.
-[00:51] Vamos a mirar.
-[00:52] Juntos.
-[00:53] Let's explore.
-[00:54] Why do we switch between the Bohr model and the Schell model of an atom?
-[01:05] Well, it depends on what we're interested in.
-[01:07] In our hotel analogy, locating an electron in an atom is like asking, where is a guest sleeping?
-[01:15] The Bohr model would have to say they are sleeping on the third floor.
-[01:19] The Schell model gives more detail.
-[01:21] Like this.
-[01:22] Like room number and which side of the bed the electron is in.
-[01:25] More advanced theories of electron structure give even more detail.
-[01:30] In chemistry, choosing a model is all about the level of detail we need.
-[01:35] The Bohr model gives us the least detail on the structure of an atom.
-[01:39] It depicts electrons orbiting the nucleus in discrete quantized energy levels
-[01:45] labeled with the principal quantum number n.
-[01:48] It also captures that as n increases,
-[01:51] the electrons get further from the nucleus and the energy of the level increases.
-[01:56] However, the Bohr model formulas for energy and radius of an orbital apply only when there is a single electron in an atom, or ion.
-[02:06] For atoms with two or more electrons, we need to move to the Schell model.
-[02:11] Unfortunately, we don't have a simple formula for the energy levels of a multi-electron atom.
-[02:18] However, the Schell model does tell us that the energy levels of a multi-electron atom are higher than those of a single electron.
-[02:20] However, the Bohr model does tell us the pattern we should expect for these energy levels.
-[02:25] This pattern tells us a lot.
-[02:27] It results from a set of quantum numbers assigned to each orbital in an atom.
-[02:32] To help understand this, let's return to our analogy of locating a guest in a hotel.
-[02:37] The principal quantum number is like the floor of the hotel.
-[02:41] It is the n of the Bohr model and tells us the Schell.
-[02:45] Each Schell has one or more sub-Schells,
-[02:48] which are like different wings of a hotel floor.
-[02:50] They arise from the quantum number L,
-[02:53] which describes the shape of the orbital.
-[02:56] Within each sub-Schell, there may be multiple energy levels.
-[03:00] These arise from the quantum number ML,
-[03:03] which describe the orientation of the orbital.
-[03:07] Because orbitals with different ML only differ by orientation,
-[03:11] all orbitals in a sub-Schell have the same energy.
-[03:15] Finally, each orbital in a sub-Schell can hold up to two electrons.
-[03:19] It is as if each room in our hotel has a double bed,
-[03:22] and guests can sleep on either the left or the right side.
-[03:26] The quantum number MS is similar,
-[03:30] except instead of the left or right side of the bed,
-[03:33] the electron can have either spin up or spin down,
-[03:37] which we show using up and down arrows.
-[03:40] Let's look at the potassium atom as an example.
-[03:44] It has a total of 19 electrons.
-[03:47] We start by filling the orbitals with the lowest energy and move up.
-[03:51] Each energy level gets two electrons,
-[03:54] one with spin up and one with spin down.
-[03:57] When completed, we get 1s2, 2s2, 2p6, 3s2, 3p6, and 4s1.
-[04:09] Finding your room in a big hotel might sound difficult.
-[04:13] It is one of hundreds of rooms.
-[04:15] But by following a simple formula,
-[04:17] the simple system, the floor, the wing, the room number, and so on,
-[04:22] you will always get there.
-[04:24] Using the right technique, you can locate electrons just as easily.
-[04:29] Vamos a explorar y no se te olvida tener fun.
-[04:32] So explore and remember to have fun.
-[04:41] Let's take a look at the energy level ordering
-[04:44] and sub-Schell capacity for electron configurations.
-[04:47] Here is the energy level diagram for multi-electron atoms
-[04:54] with the energy going from lowest at the bottom to highest at the top.
-[04:58] And we'll relate this to the structure of the periodic table
-[05:02] and look at the order in which the sub-shells fill
-[05:06] and how many electrons can fill into each sub-shell.
-[05:10] So we start with the lowest energy that fills first.
-[05:13] That is the 1s sub-shell.
-[05:16] And that has a capacity of 2 electrons
-[05:19] because there is one orbital and each orbital can hold up to 2 electrons.
-[05:23] So that is 1s2 for its electron configuration.
-[05:27] Now the next highest energy is the 2s sub-shell.
-[05:31] That also has one orbital, 2 electrons.
-[05:35] So that is 2s2.
-[05:38] Next we have the 2p sub-shell.
-[05:41] That has 3 orbitals.
-[05:43] So 3 times 2 is 6 electrons maximum.
-[05:45] And that is 2p6.
-[05:49] We now move to the third row of the periodic table.
-[05:52] And the 3s sub-shell fills first, 3s2.
-[05:56] The 3p sub-shell fills next, 3p6.
-[06:01] And then we go to the fourth row of the periodic table.
-[06:05] And the 4s sub-shell fills.
-[06:08] We get an electron configuration of 4s2.
-[06:12] Next actually comes the 3d sub-shell.
-[06:15] And that has 5 orbitals.
-[06:18] So 5 times 2 is 10 electrons.
-[06:21] And we have 3d10.
-[06:23] And now we go to 4p.
-[06:26] And 4p6 is the configuration for that part.
-[06:33] Next up is the fifth row.
-[06:38] We have 5s2 for the 5s sub-shell.
-[06:42] Next comes the third row.
-[06:45] And that gives us 4d10.
-[06:48] After that comes the 5p sub-shell.
-[06:53] And we have 5p6, completing the fifth row of the periodic table.
-[06:58] We are now into the sixth row.
-[07:01] And it is 6s2 first.
-[07:04] Next we actually go down to the lanthanides.
-[07:08] Which is 4f14.
-[07:12] So the f sub-shell has 6s2.
-[07:15] And it has 7 orbitals.
-[07:17] 7 times 2 is 14.
-[07:19] So that is the reason for that capacity.
-[07:22] Now we are into the 5d sub-shell.
-[07:25] Back into the main part of the periodic table.
-[07:28] 5d10.
-[07:30] And then we complete the sixth row with 6p6.
-[07:35] Now the seventh row fills out as well.
-[07:37] It is not shown here.
-[07:39] You can probably guess the pattern by now.
-[07:41] It is going to be 7s2.
-[07:43] Then 5f14.
-[07:46] Then 6d10.
-[07:48] And finally 7p6.
-[07:51] This is an introduction to orbital diagrams.
-[07:56] On the left we have an energy level diagram showing the sub-shells and the orbitals within the sub-shells.
-[08:04] In terms of increasing energy as we go upward.
-[08:07] And on the right we have a periodic table for reference.
-[08:10] And orbital diagrams are...
-[08:13] essentially electron configurations.
-[08:16] But they show a little more information.
-[08:19] We use a box to represent each orbital.
-[08:22] And then we use half arrows to represent each electron.
-[08:27] And a half arrow pointing up corresponds to an electron with plus one half spin or up spin.
-[08:33] And a half arrow pointing down corresponds to an electron with down spin or negative one half spin.
-[08:40] So let's see how this works.
-[08:42] We will start with lithium as an example.
-[08:45] And lithium has the electron configuration 1s2 2s1.
-[08:50] And how the electrons will fill into the sub-shells for lithium.
-[08:56] They start in the lowest energy.
-[08:58] And then we can have up to two electrons per orbital.
-[09:01] So the first electron goes into the 1s orbital.
-[09:05] And the second electron also goes into the 1s orbital but with opposite spin.
-[09:10] Now that orbital is filled.
-[09:15] So the third electron goes into the 2s orbital.
-[09:19] The 2s sub-shell.
-[09:20] That's it for lithium.
-[09:22] And so how we write the orbital diagram is essentially what we have already on the left.
-[09:28] But we write the orbitals horizontally.
-[09:32] In terms of increasing energy from left to right.
-[09:35] So like that.
-[09:37] 1s then 2s then the 2p sub-shell.
-[09:40] With three orbitals within that sub-shell.
-[09:43] And then we just fill in the electrons showing their spin states.
-[09:48] As we did on the left.
-[09:51] And that is the orbital diagram for lithium.
-[09:57] Alright let's try carbon next.
-[09:59] Carbon has an electron configuration 1s2 2s2 2p2.
-[10:05] And we'll fill in the electrons.
-[10:08] From lowest to highest energy.
-[10:10] Following the rules as before.
-[10:13] First two electrons go in the 1s sub-shell.
-[10:16] Second two electrons go in the 2s sub-shell.
-[10:19] Each of these are only one orbital per sub-shell.
-[10:22] And now we have two more electrons that go into the 2p sub-shell.
-[10:27] There's one.
-[10:29] And then the next one goes into a separate orbital.
-[10:33] And we have two what are called unpaired electrons.
-[10:37] In separate orbitals.
-[10:39] And the electrons fill in with the same spin direction.
-[10:43] So long as they are in separate orbitals and unpaired.
-[10:47] That's it.
-[10:49] We've filled in the electrons into the orbital boxes.
-[10:54] And now we'll write our orbital notation.
-[10:57] By simply just doing this horizontally.
-[11:00] 1s2 2s2 2p2.
-[11:05] And notice we show a little more information.
-[11:07] Because it shows clearly that the two electrons in the 2p sub-shell.
-[11:12] Are in separate orbitals with the same spin states.
-[11:16] Alright let's try chlorine next.
-[11:21] And chlorine has an electron configuration.
-[11:25] 1s2 2s2 2p6 3s2 3p5.
-[11:29] And remember once we start getting to longer electron configurations.
-[11:33] It's often simpler and convenient.
-[11:36] To use an abbreviated or condensed electron configuration.
-[11:41] So instead of writing out 1s2 2s2 2p6.
-[11:44] We represent that.
-[11:46] Those inner shell or core electrons by the neon symbol in brackets.
-[11:51] And we'll do this with orbital diagrams as well.
-[11:55] So the electrons now are going to fill in.
-[12:00] 1s2 2s2 2p6.
-[12:03] That corresponds to neon.
-[12:05] So we'll use this condensed notation.
-[12:08] And now we'll write out explicitly.
-[12:11] The electrons in the outer shell.
-[12:14] So in this case it will be 3s1 3s2.
-[12:18] 3p1 2 3.
-[12:22] In separate orbitals with the same spin state.
-[12:25] And then 3p4 and 3p5.
-[12:29] Now have to start pairing up.
-[12:31] So we end up with one unpaired electron.
-[12:34] In the 3p subshell.
-[12:36] We have four paired up electrons in the 3p subshell.
-[12:39] And we write our orbital diagram.
-[12:42] As we've done before.
-[12:45] Neon in brackets represents those filled inner shells.
-[12:50] And then we fill in the subshells in the outer shell.
-[12:55] With boxes representing orbitals.
-[12:58] And half arrows representing electrons.
-[13:01] Alright.
-[13:02] Here's our last example.
-[13:04] Iron.
-[13:06] Iron has a condensed electron configuration of argon.
-[13:11] 4s2 3d6.
-[13:13] So we'll do the same thing as before.
-[13:15] All of that stuff.
-[13:16] 1s2 2s2 2p6 3s2 3p6.
-[13:20] Is the argon noble gas arrangement.
-[13:24] Noble gas configuration.
-[13:26] And now we have eight more electrons.
-[13:28] That are in the 4s and 3d subshells.
-[13:31] The 4s subshell fills first.
-[13:35] 1 2.
-[13:36] And then the 3d subshell is slightly higher in energy.
-[13:39] Than the 4s subshell.
-[13:41] So it fills in next.
-[13:42] 1 2 3 4 5.
-[13:47] We have five orbitals in the 3d subshell.
-[13:50] And then we have each electron in a separate orbital.
-[13:54] As long as possible.
-[13:55] With the same spin state.
-[13:56] And since this has a sixth electron in the d subshell.
-[14:00] That has to pair up.
-[14:02] And so we have four unpaired electrons in the 3d subshell.
-[14:07] And our condensed orbital diagram.
-[14:11] Is argon.
-[14:13] 4s2 3d6.
-[14:18] And we're explicitly showing the electrons.
-[14:22] Which orbitals they're in.
-[14:23] And their spin states.
-[14:25] And that's it for an introduction to orbital.
-[14:29] Diagrams.
-[14:31] Have you ever tried to remove iron filings from a magnet?
-[14:36] Not easy.
-[14:39] And of course.
-[14:40] The stronger the magnet.
-[14:41] The stronger the attraction.
-[14:43] Appreciating this relationship.
-[14:46] Between attraction.
-[14:47] And the energy needed to overcome the attraction.
-[14:50] Is central to the ionization energy.
-[14:53] This is Real Kim.
-[14:59] In addition to drawing up and numerous Creating a Palestinian
-[15:28] You'll get there. Let's explore.
-[15:37] I love learning about the periodic table.
-[15:39] For one, it can be used to predict what type of cation or anion an atom would make.
-[15:45] And because of that, we can also use the periodic table to predict
-[15:49] how easily atoms will be converted to ions by the energy changes it takes to do this,
-[15:55] which are periodic properties like atomic size.
-[15:58] To form a cation, an atom has to lose an electron.
-[16:03] The energy for this is called the ionization energy.
-[16:07] It always requires energy to pull the negative electron away from the positive nucleus.
-[16:14] So all ionization energies are endothermic.
-[16:18] How easily an electron can be removed from an atom
-[16:22] depends on the strength of its attraction to the nucleus.
-[16:25] So two factors matter here.
-[16:27] The distance between the electron and the nucleus,
-[16:31] so the farther away, the easier it is to remove.
-[16:34] And the effective nuclear charge.
-[16:37] The larger the charge, the harder it is to remove.
-[16:40] Let's illustrate this with two elements, beryllium and magnesium.
-[16:46] Beryllium, or BE, has four electrons,
-[16:50] two in the first shell and two in the second shell.
-[16:53] To ionize beryllium,
-[16:54] we need to have a nuclear charge.
-[16:55] We need to remove an outer shell or valence electron.
-[17:00] A valence electron in beryllium is attracted by the plus four charge of the nucleus.
-[17:05] But a charge of minus two from the inner shell electrons
-[17:10] shields the valence electrons from the plus four nuclear charge.
-[17:15] This results in an effective nuclear charge or Z-effective
-[17:19] experienced by the outer electrons of plus four, minus two, giving plus two.
-[17:25] Beryllium has an ionization energy of 900 kilojoules per mole.
-[17:30] We'll use this as a reference point.
-[17:32] Next, let's look at magnesium, or Mg.
-[17:36] Magnesium has 12 electrons, two in the first shell,
-[17:40] eight in the second shell, and two in the third.
-[17:44] A valence electron in magnesium is attracted by the plus 12 charge of the nucleus.
-[17:49] But a charge of minus 10 from the 10 inner shell electrons
-[17:54] shields the valence electrons from that plus 12 nuclear charge.
-[17:59] This results in an effective nuclear charge experienced by the outer electrons
-[18:04] of plus 12, minus 10, giving plus two.
-[18:09] So ionizing magnesium requires pulling a third shell electron
-[18:15] away from an effective nuclear charge of plus two.
-[18:18] The valence electrons in magnesium are further away from the nucleus than those in beryllium.
-[18:24] But both have the same Z-effective.
-[18:28] This means a weaker attraction is found in magnesium than beryllium,
-[18:33] and therefore lower ionization energy.
-[18:36] Magnesium has an ionization energy of 730 kilojoules per mole,
-[18:41] significantly less than the 900 kilojoules per mole for beryllium,
-[18:46] which confirms our prediction.
-[18:48] This reasoning holds for other elements in a given group, so in general.
-[18:53] The ionization energy of magnesium is lower than beryllium,
-[18:54] and therefore higher than beryllium.
-[18:55] The ionization energy increases as you go up a group.
-[18:58] Atoms get smaller as shell numbers go down.
-[19:01] Going across a row, the effective nuclear charge increases,
-[19:06] but the valence electrons are in the same shell.
-[19:10] The higher the nuclear charge, the harder it is to remove an electron.
-[19:16] There is a lot going on here,
-[19:18] and so don't worry if this hasn't clicked immediately.
-[19:22] Don't lose sight of the most basic principles.
-[19:24] All we are doing is rationalizing why some atoms take more or less energy
-[19:30] to pull an electron away from its atom.
-[19:33] Just like those iron filings on the magnet,
-[19:36] it takes more energy to get them off if the magnet is strong.
-[19:40] So explore and remember to have fun.
+[00:00] Have you ever tried to remove iron filings from a magnet?
+[00:05] Not easy.
+[00:08] And of course, the stronger the magnet, the stronger the attraction.
+[00:12] Appreciating this relationship between attraction and the energy needed to overcome the attraction is central to the ionization energy.
+[00:22] This is RealChem.
+[00:30] Understanding ionization energies will require resilience for all of us.
+[00:39] This is because it draws from quite a few different areas of knowledge.
+[00:43] But know that everyone faces a challenge with this topic, and so be easy on yourself if this doesn't click right away.
+[00:51] Stick with it. Use the people and resources around you to help you.
+[00:56] You'll get there. Let's explore.
+[01:00] I love learning about the periodic table.
+[01:09] For one, it can be used to predict what type of cation or anion an atom would make.
+[01:15] And because of that, we can also use the periodic table to predict how easily atoms will be converted to ions by the energy changes it takes to do this, which are periodic properties like atomic size.
+[01:28] To form a cation, an atom, and an atom.
+[01:29] To form a cation, an atom, and an atom.
+[01:30] The energy for this is called the ionization energy.
+[01:39] It always requires energy to pull the negative electron away from the positive nucleus.
+[01:43] So, all ionization energies are endothermic.
+[01:47] How easily an electron can be removed from an atom depends on the strength of its attraction to the nucleus.
+[01:55] So two factors matter here.
+[01:57] The distance between the electron and the nucleus.
+[01:59] and the nucleus, so the farther away, the easier it is to remove, and the effective
+[02:05] nuclear charge.
+[02:06] The larger the charge, the harder it is to remove.
+[02:09] Let's illustrate this with two elements, beryllium and magnesium.
+[02:16] Beryllium or BE has four electrons, two in the first shell and two in the second shell.
+[02:22] To ionize beryllium, we need to remove an outer shell or valence electron.
+[02:28] A valence electron in beryllium is attracted by the plus-four charge of the nucleus, but
+[02:35] a charge of minus-two from the inner shell electrons shields the valence electrons from
+[02:41] the plus-four nuclear charge.
+[02:43] This results in an effective nuclear charge, or Z-effective, experienced by the outer electrons
+[02:50] of plus-four, minus-two, giving plus-two.
+[02:55] Beryllium has an ionization energy of 900 kilojoules per second.
+[02:58] We'll use this as a reference point.
+[03:01] Next, let's look at magnesium, or Mg.
+[03:05] Magnesium has 12 electrons, two in the first shell, eight in the second shell, and two
+[03:12] in the third.
+[03:13] A valence electron in magnesium is attracted by the plus-12 charge of the nucleus, but
+[03:19] a charge of minus-ten from the ten inner shell electrons shields the valence electrons from
+[03:26] that plus-12 nuclear charge.
+[03:28] Beryllium?
+[03:28] This results in an effective nuclear charge experienced by the outer electrons of plus
+[03:34] 12, minus 10, giving plus 2.
+[03:38] So ionizing magnesium requires pulling a third shell electron away from an effective nuclear
+[03:45] charge of plus 2.
+[03:48] The valence electrons in magnesium are further away from the nucleus than those in beryllium,
+[03:54] but both have the same Z-effective.
+[03:57] This means a weaker attraction is found in magnesium than beryllium and therefore lower
+[04:04] ionization energy.
+[04:06] Magnesium has an ionization energy of 730 kJ per mole, significantly less than the 900
+[04:13] kJ per mole for beryllium, which confirms our prediction.
+[04:18] This reasoning holds for other elements in a given group, so in general, the ionization
+[04:24] energy increases as you go up a group.
+[04:27] Atoms get smaller as shell numbers go down.
+[04:31] Going across a row, the effective nuclear charge increases, but the valence electrons
+[04:36] are in the same shell.
+[04:39] The higher the nuclear charge, the harder it is to remove an electron.
+[04:45] There is a lot going on here, and so don't worry if this hasn't clicked immediately.
+[04:51] Don't lose sight of the most basic principles.
+[04:54] All we are doing is rationalizing why some atoms are in the same shell.
+[04:57] The more atoms are in the same shell, the more energy it takes to pull an electron
+[05:00] away from its atom.
+[05:02] Just like those iron filings on the magnet, it takes more energy to get them off if the
+[05:08] magnet is strong.
+[05:10] So explore and remember to have fun.
+[05:22] Watching the sunrise is an inspiring experience.
+[05:26] I'm going to go back to my room.
+[05:27] See baby.
+[05:28] The enhanced light lights the
+[05:37] sky, and the two-way traffic lights light the room.
+[05:39] But what about flashlight.
+[05:42] We use light to map out some objects on a map, and it does.
+[05:44] We recognize, see, thatGotravel gets Bowser's advantage from behavior that the outer prince
+[05:49] 층s are not present in.
+[05:50] The light turns the dynamo on the scream of Unreal.
+[05:52] We know he'll use size because it's a little bit faster to hear the natility.
+[05:54] See the infinite ball bouncing through a leaf speed.
+[05:57] experience in our everyday lives. So we must expand our intuition. The matter around us seems
+[06:04] continuous, but it is actually composed of small particles we call atoms and molecules. Light is
+[06:12] similar. It appears to be a continuous wave, but is composed of particles we call photons. Let's explore.
+[06:20] Many of the things we experience about light can be understood based on the wave character of light.
+[06:33] The beautiful oranges and reds we see in a sunset are due to scattering and refraction behaviors
+[06:40] that are common to wave phenomena. And this wave characteristic applies to radiation across the
+[06:46] entire electromagnetic spectrum, from light to light.
+[06:50] So we must expand our intuition. The matter around us seems continuous, but it is also composed of small particles we call photons. Let's explore.
+[06:50] Radio waves to gamma rays. Radio waves are like deep bass notes. They have low frequency.
+[06:58] Gamma rays are like high-pitched treble noises. They have high frequency. Visible light is a narrow
+[07:05] portion of the full electromagnetic spectrum that our eyes have evolved to detect. But that's about
+[07:12] us, not the radiation itself. From the radiation's perspective, the only difference between the
+[07:19] infrared radiation and the light radiation is the difference between the radiation and the light radiation.
+[07:20] The light radiation is the frequency of the light. The ultraviolet radiation, or IR, of a heat lamp used to warm food,
+[07:23] and the ultraviolet radiation, or UV, of a lamp used to sterilize medical equipment, is the frequency of the light.
+[07:33] Now, both lamps may be putting out the same amount of energy, but IR will warm your skin, while UV may damage it.
+[07:42] But why is that? Well, to answer this, we need to consider the particulate nature of light,
+[07:50] light is also composed of photons. The energy of each photon is proportional to the frequency
+[07:57] of the light, where the proportionality constant is called the Planck constant, or h.
+[08:03] UV light has a frequency that is 10,000 times larger than IR light, so each UV photon has 10,000
+[08:12] times more energy than an IR photon. For each high-energy photon emitted by UV light, the UV light is 10,000 times larger than the IR light.
+[08:18] emitted by the UV lamp, the IR lamp is emitting 10,000 low energy photons.
+[08:26] It's also important to know that matter typically interacts with photons one by
+[08:31] one, with plenty of time between to spread the energy out as heat.
+[08:36] It's like under the UV lamp, my hand is getting hit with one bowling ball
+[08:41] each minute, potentially breaking my bones.
+[08:44] While under the IR lamp, my hand is getting hit with 10,000 foam balls
+[08:48] each minute, giving me a gentle massage.
+[08:52] For the molecules in my hand, it is somewhat similar.
+[08:55] The UV photons have enough energy to break chemical bonds, while the IR photons
+[09:01] just warm the molecules and do not change their chemical structure.
+[09:07] Light has both a wave-like and particle-like character.
+[09:11] This is often referred to as the wave particle.
+[09:14] The light particle is the particle duality of light.
+[09:17] But it is helpful to know that these characteristics coexist and are not in conflict.
+[09:23] It all depends on what we are trying to understand about light.
+[09:27] To understand the colors of the sunset, we can get pretty far considering only the wave nature of light.
+[09:35] But when we think about the interaction of light with matter, we often need to consider the
+[09:40] particulate nature of light.
+[09:42] That light is composed of photons.
+[09:44] And that UV photons pack a much bigger punch than IR photons.
+[09:49] So explore and remember to have fun.
+[10:04] What are stars made of?
+[10:07] Sounds like a difficult thing to answer because they're very far away.
+[10:12] But chemistry.
+[10:14] Can give us answers.
+[10:15] So let's work out how to read the stars.
+[10:20] Aprendamos a leer las estrellas.
+[10:23] This is Real Chem.
+[10:31] Básicamente, atoms absorb electromagnetic radiation, which causes electrons to jump.
+[10:38] When they fall back into place, they emit radiation that is quantized.
+[10:43] This is quantum chemistry.
+[10:43] This is quantum chemistry.
+[10:44] This is quantum chemistry.
+[10:45] Let's use the hydrogen atom to think this through together.
+[10:49] Exploremos.
+[10:50] Exploremos.
+[10:51] Exploremos.
+[10:57] When an atom absorbs light, the electrons in the atom get excited to a higher energy level.
+[11:03] They jump like a kid that has eaten too much sugar.
+[11:07] I know this, because I have a toddler, and as fun as it sounds, you don't want to meet
+[11:12] them after a sugar crush.
+[11:13] Let's say we shine white light on an atom.
+[11:17] White light is the mix of all the colors of the rainbow.
+[11:21] But the atom doesn't absorb all of these colors.
+[11:24] It absorbs only light from very specific colors.
+[11:27] The absorption spectrum of an atom shows these colors as black lines.
+[11:31] But what makes an atom so picky about the colors it will absorb?
+[11:36] Well, part of this has to do with the atom, and part of it has to do with the light.
+[11:41] Let's start with the light.
+[11:43] Light consists of photons, and the energy of a photon is related to the color of the light.
+[11:49] Red photons have low energy.
+[11:51] Violet photons have high energy.
+[11:56] So the atom is picky about the color of photons it absorbs because it can only absorb photons
+[12:01] that have very specific energies.
+[12:05] But what makes the atom so picky about photon energy?
+[12:09] Well, electrons in an atom can only have very specific
+[12:13] energies, which we call energy levels.
+[12:16] When an atom absorbs a photon, it transitions from a lower energy level to a higher energy level.
+[12:22] The energy to make this transition comes from the photon, and the photon must have exactly
+[12:28] the right amount of energy.
+[12:31] No more and no less.
+[12:34] If an atom absorbs an orange photon, it is because photons of the color orange have exactly
+[12:40] the energy needed to move between two of the allowed and non-allowed photons in the energy
+[12:43] energy levels in that atom. Atoms can also emit light. This occurs when the atom starts
+[12:49] at a higher energy level and drops to a lower energy level. The color of the emitted light
+[12:55] is that of photons whose energy corresponds to the gaps between these energy levels.
+[13:02] Each element has its own unique set of allowed energy levels. Hydrogen levels are different
+[13:07] than helium levels. This means hydrogen and helium will absorb and emit different colors
+[13:13] of light. So they have different spectra.
+[13:19] We can use the spectrum to identify the presence of different elements. It's as if the spectrum
+[13:25] is a fingerprint, telling us the element is there. If we see the spectrum of helium when
+[13:30] we look at a star, it means helium is present around that.
+[13:36] Telescopes that measure spectrum can measure the spectrum of helium.
+[13:37] The spectrum of helium's spectra allows us to read the light emitted across the universe
+[13:41] and unravel what distant stars are made of. Bastante interesante, no?
+[13:47] So explore and remember to have fun. Explora y diviértete.
+[14:04] What does it take to find a guest in a hotel?
+[14:07] We might be given the floor, then the wing, then the room number. Finding the location
+[14:15] of an electron in an atom is maybe not so different. This is real chem.
+[14:29] Understanding the locations of electrons using different models is something I struggled with
+[14:36] during college.
+[14:37] It took a while before I clicked. The key for me was to break it down into some basic steps
+[14:43] and not lose sight of the system I was using to find them. If you find this hard,
+[14:49] don't worry. Stay with it. Vamos a mirar juntos. Let's explore.
+[14:59] Why do we switch between the Bohr model and the Schell model of an atom? Well, it depends on what
+[15:05] we're interested in. We're interested in the presence of different atoms in the system. We're
+[15:07] interested in the presence of different electrons in the system. We're interested in the presence of
+[15:08] different electrons in the system. We're interested in the presence of different electrons in the system.
+[15:09] Locating an electron in an atom is like asking, where is a guest sleeping? The Bohr model would
+[15:15] have to say they are sleeping on the third floor. The Schell model gives more detail, like room
+[15:22] number and which side of the bed the electron is in. More advanced theories of electron structure
+[15:27] give even more detail. In chemistry, choosing a model is all about the level of detail we need.
+[15:34] Why do we choose a Bohr model? We choose a Bohr model because it gives us the least detail on the
+[15:37] structure of an atom. It depicts electrons orbiting the nucleus in discrete, quantized
+[15:43] energy levels labeled with the principal quantum number n. It also captures that as
+[15:49] n increases, the electrons get further from the nucleus, and the energy of the level increases.
+[15:56] However, the Bohr model formulas for energy and radius of an orbital apply
+[16:01] only when there is a single electron in an atom, or ion. For atoms with two or moreeston and more resonates the谷α Крас, the 4m, glovemère equation applies when there is
+[16:01] only one electron in an atom, pro emptin-â начè, for an atom. For atoms with two or more electrons, the
+[16:02] brown 1992 brothers, the four cells, vesicle, will bind to an orbital, the 2,6. Theаты Chong and the
+[16:04] uppercak yangbya serves as incentives to the ion getting away from ne or near.
+[16:05] For atoms with two or more electrons, we need to move to the shell model.
+[16:11] Unfortunately, we don't have a simple formula for the energy levels of a multi-electron atom.
+[16:18] However, the shell model does tell us the pattern we should expect for these energy levels.
+[16:24] And this pattern tells us a lot.
+[16:26] It results from a set of quantum numbers assigned to each orbital in an atom.
+[16:30] To help understand this, let's return to our analogy of locating a guest in a hotel.
+[16:36] The principal quantum number is like the floor of the hotel.
+[16:40] It is the n of the Bohr model and tells us the shell.
+[16:44] Each shell has one or more subshells, which are like different wings of a hotel floor.
+[16:50] They arise from the quantum number L, which describes the shape of the orbital.
+[16:56] Within each subshell, there may be multiple energy levels.
+[16:59] These arise from the quantum number L, which describes the shape of the orbital.
+[17:00] Within each subshell, there may be multiple energy levels.
+[17:00] These arise from the quantum number ML, which describes the orientation of the orbital.
+[17:06] Because orbitals with different ML only differ by orientation,
+[17:11] all orbitals in a subshell have the same energy.
+[17:14] Finally, each orbital in a subshell can hold up to two electrons.
+[17:19] It is as if each room in our hotel has a double bed,
+[17:22] and guests can sleep on either the left or the right side.
+[17:26] The quantum numbers MS is similar, except instead,
+[17:30] the electron can have either spin up or spin down,
+[17:36] which we show using up and down arrows.
+[17:39] Let's look at the potassium atom as an example.
+[17:44] It has a total of 19 electrons.
+[17:46] We start by filling the orbitals with the lowest energy and move up.
+[17:50] Each energy level gets two electrons, one with spin up and one with spin down.
+[17:55] When completed, we get 1s2, 2s2, 2p6, 3s2, 3p6, and 4s1.
+[18:05] Finding your room in a big hotel might sound difficult.
+[18:12] It is one of hundreds of rooms.
+[18:14] But by following a simple system, the floor, the wing, the room number, and so on,
+[18:21] you will always get there.
+[18:23] Using the right technique,
+[18:25] you can locate electrons just as easily.
+[18:28] Vamos a explorar y no se te olvida tener fun.
+[18:31] So explore and remember to have fun.

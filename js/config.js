@@ -16,7 +16,7 @@ window.CONFIG = {
 
   // ---- Video (Dropbox) ----------------------------------------------------
   // Paste your Dropbox share link; "?dl=0" is auto-rewritten to a stream URL.
-  VIDEO_DROPBOX_URL: "https://www.dropbox.com/scl/fi/qmsvxeso3850oqc2w0ghp/group_01_unit_3_05_08.mp4?rlkey=4ip2evyb3m0szgrxt7qpxb63a&st=95593j72&dl=0",
+  VIDEO_DROPBOX_URL: "https://www.dropbox.com/scl/fi/7pl5m0pdgfk9cugiy3mk9/group_01_unit_3_02_05.mp4?rlkey=wxzr4g2f2dpg4bzaeptik75mh&st=c7zkmq2i&raw=1",
 
   // ---- Condition assignment ----------------------------------------------
   // 1 = passive | 2 = active-scheduled | 3 = active-survival

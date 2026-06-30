@@ -15,7 +15,7 @@ window.CONTENT = {
   INTRO_HTML: `
     <p>Thanks for taking part. In this session you will:</p>
     <ol>
-      <li>Answer a few short <strong>pre-test</strong> questions.</li>
+      <li>Answer a short <strong>demographic survey</strong> followed by a <strong>pre-test</strong>.</li>
       <li>Watch a short <strong>lecture video</strong>. An <strong>AI study
           assistant</strong> sits beside the video — you can ask it questions
           about the material at any time.</li>
@@ -89,4 +89,143 @@ window.CONTENT = {
   // First thing the bot says when the study view opens (all conditions).
   // For PASSIVE (condition 1) this is the ONLY unsolicited message.
   GREETING: "Hi! I'm your study assistant. Ask me anything about the video and I'll help you make sense of it.",
+
+  // Survey
+  // ------------------------------------------------------------ Surevy ---
+  DEMOGRAPHICS: [
+    {
+      id: "demo_age",
+      type: "mc",
+      prompt: "Age",
+      options: [
+        "17 or younger",
+        "18-20",
+        "21-23",
+        "24-26",
+        "27-30",
+        "31 or older",
+        "Prefer not to say"
+      ]
+    },
+    {
+      id: "demo_gender",
+      type: "mc",
+      prompt: "Gender",
+      options: [
+        "Woman",
+        "Man",
+        "Non-binary",
+        "Prefer not to say"
+      ]
+    },
+    {
+      id: "demo_race",
+      type: "mc",
+      prompt: "Race/Ethnicity",
+      options: [
+        "American Indian or Alaska Native",
+        "Asian",
+        "Black or African American",
+        "Hispanic or Latino",
+        "Native Hawaiian or Other Pacific Islander",
+        "White",
+        "Prefer not to say"
+      ]
+    },
+    {
+      id: "demo_firstgen",
+      type: "mc",
+      prompt: "First-Generation College Student: Are you the first person in your immediate family (parents/legal guardians) to attend a four-year college or university?",
+      options: [
+        "Yes",
+        "No",
+        "Prefer not to say"
+      ]
+    },
+    {
+      id: "demo_major",
+      type: "mc",
+      prompt: "Major / Field of Study (Select the category that best relates)",
+      options: [
+        "Physical Sciences (e.g., Chemistry, Physics, Earth Science)",
+        "Life Sciences (e.g., Biology, Biochemistry, Health Sciences)",
+        "Engineering",
+        "Computer Science / Mathematics",
+        "Social Sciences (e.g., Psychology, Sociology, Economics, Political Science)",
+        "Humanities (e.g., History, English, Philosophy, Languages)",
+        "Arts (e.g., Fine Arts, Music, Theater)",
+        "Business / Management",
+        "Prefer not to say"
+      ]
+    },
+    {
+      id: "demo_workexp",
+      type: "mc",
+      prompt: "Years of Work Experience",
+      options: [
+        "Less than 1 year",
+        "1 to 3 years",
+        "4 to 6 years",
+        "7 to 10 years",
+        "More than 10 years",
+        "Prefer not to say"
+      ]
+    },
+    {
+      id: "demo_income",
+      type: "mc",
+      prompt: "Household Income: What is your estimated annual household income?",
+      options: [
+        "Less than $25,000",
+        "$25,000 to $49,999",
+        "$50,000 to $74,999",
+        "$75,000 to $99,999",
+        "$100,000 to $149,999",
+        "$150,000 or more",
+        "Prefer not to say"
+      ]
+    },
+    {
+      id: "demo_education",
+      type: "mc",
+      prompt: "Highest Level of Education Completed",
+      options: [
+        "Some high school, no diploma",
+        "High school diploma or equivalent (e.g., GED)",
+        "Some college credit, no degree",
+        "Associate degree (e.g., AA, AS)",
+        "Bachelor's degree (e.g., BA, BS)",
+        "Master's degree (e.g., MA, MS, MEd)",
+        "Professional degree (e.g., MD, DDS, DVM, JD)",
+        "Doctorate (e.g., PhD, EdD)",
+        "Prefer not to say"
+      ]
+    },
+    {
+      id: "demo_chemexp",
+      type: "mc",
+      prompt: "Previous Chemistry Course Experience (Select the highest level completed)",
+      options: [
+        "No previous formal chemistry courses",
+        "High School Chemistry only",
+        "Completed one semester/term of College General Chemistry",
+        "Completed two semesters/terms (full year) of College General Chemistry",
+        "Completed Organic Chemistry or higher level college chemistry courses",
+        "Prefer not to say"
+      ]
+    },
+    {
+      id: "demo_difficulty",
+      type: "mc",
+      prompt: "Perception of Chemistry Difficulty: In general, how easy or difficult do you find chemistry to learn?",
+      options: [
+        "Very Easy",
+        "Easy",
+        "Neutral / Neither Easy nor Difficult",
+        "Difficult",
+        "Very Difficult",
+        "Prefer not to say"
+      ]
+    }
+  ],
 };

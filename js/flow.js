@@ -12,20 +12,43 @@ window.Flow = (function () {
   const C = window.CONFIG;
   const SS = window.sessionStorage;
 
-  const STAGES = ["intro", "pretest", "study", "posttest", "end"];
+  // Updated stage order
+  const STAGES = [
+    "intro",
+    "demographics",
+    "pretest",
+    "study",
+    "posttest",
+    "end"
+  ];
+
+  // Added demographics page
   const FILES = {
-    intro: "index.html", pretest: "pretest.html", study: "study.html",
-    posttest: "posttest.html", end: "end.html",
+    intro: "index.html",
+    demographics: "demographics.html",
+    pretest: "pretest.html",
+    study: "study.html",
+    posttest: "posttest.html",
+    end: "end.html",
   };
 
-  const get = (k, d = null) => { try { const v = SS.getItem(k); return v === null ? d : JSON.parse(v); } catch (_) { return d; } };
+  const get = (k, d = null) => {
+    try {
+      const v = SS.getItem(k);
+      return v === null ? d : JSON.parse(v);
+    } catch (_) {
+      return d;
+    }
+  };
+
   const set = (k, v) => SS.setItem(k, JSON.stringify(v));
   const idx = (s) => STAGES.indexOf(s);
 
   // ---- session identity --------------------------------------------------
-  const rid        = () => get("rid");
-  const condition  = () => get("condition");
-  const furthest   = () => get("furthest", "intro");
+
+  const rid = () => get("rid");
+  const condition = () => get("condition");
+  const furthest = () => get("furthest", "intro");
 
   function makeRespondentId() {
     const t = Date.now().toString(36);
@@ -43,12 +66,20 @@ window.Flow = (function () {
     if (strat === "balanced" && C.BACKEND_URL) {
       try {
         const res = await fetch(`${C.BACKEND_URL}/assign`, {
-          method: "POST", headers: { "Content-Type": "application/json" },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ respondent_id: respondentId }),
         });
-        if (res.ok) { const d = await res.json(); if (d.condition) return d.condition; }
-      } catch (_) { /* fall through */ }
+
+        if (res.ok) {
+          const d = await res.json();
+          if (d.condition) return d.condition;
+        }
+      } catch (_) {
+        // fall through
+      }
     }
+
     return 1 + Math.floor(Math.random() * 3);
   }
 
@@ -59,48 +90,77 @@ window.Flow = (function () {
     set("archive", []);
   }
 
-  // ---- event archive (for the end-of-study backup download) --------------
+  // ---- event archive -----------------------------------------------------
+
   function archiveAppend(events) {
     if (!events.length) return;
     const a = get("archive", []);
     for (const e of events) a.push(e);
     set("archive", a);
   }
+
   const archiveAll = () => get("archive", []);
 
   // ---- navigation guards -------------------------------------------------
-  // Call at the top of each page. Only the furthest-reached stage is allowed;
-  // any earlier page (Back) or later page (skip-ahead via URL) redirects to it.
+
   function requireStage(stage) {
-    if (stage !== "intro" && !rid()) { location.replace(FILES.intro); return false; }
-    if (stage !== furthest()) { location.replace(FILES[furthest()]); return false; }
+    if (stage !== "intro" && !rid()) {
+      location.replace(FILES.intro);
+      return false;
+    }
+
+    if (stage !== furthest()) {
+      location.replace(FILES[furthest()]);
+      return false;
+    }
+
     return true;
   }
 
   function advanceTo(stage) {
-    if (idx(stage) > idx(furthest())) set("furthest", stage);
+    if (idx(stage) > idx(furthest())) {
+      set("furthest", stage);
+    }
   }
 
-  // Move to the next page (forward-only; previous page removed from history).
   function goNext(currentStage) {
     const next = STAGES[idx(currentStage) + 1];
     if (!next) return;
+
     advanceTo(next);
-    if (window.Logger) Logger.persistArchive();   // save this page's events first
+
+    if (window.Logger) {
+      Logger.persistArchive();
+    }
+
     location.replace(FILES[next]);
   }
 
-  // Trap the browser Back button on this page.
+  // ---- prevent browser back ----------------------------------------------
+
   function lockBack() {
     history.pushState(null, "", location.href);
-    window.addEventListener("popstate", () => history.pushState(null, "", location.href));
+    window.addEventListener("popstate", () => {
+      history.pushState(null, "", location.href);
+    });
   }
 
   return {
-    STAGES, FILES, get, set,
-    rid, condition, furthest,
-    makeRespondentId, assignCondition, initSession,
-    archiveAppend, archiveAll,
-    requireStage, advanceTo, goNext, lockBack,
+    STAGES,
+    FILES,
+    get,
+    set,
+    rid,
+    condition,
+    furthest,
+    makeRespondentId,
+    assignCondition,
+    initSession,
+    archiveAppend,
+    archiveAll,
+    requireStage,
+    advanceTo,
+    goNext,
+    lockBack,
   };
 })();
