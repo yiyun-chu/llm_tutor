@@ -47,9 +47,9 @@ body {
 .mono { font-family: var(--mono); color: var(--ink); }
 
 /* ---- stage / screens ---- */
-.stage { padding: 40px 20px; }
+.stage { width: 100%; display: flex; justify-content: center; padding: 2rem 0; }
 .screen { display: none; max-width: 760px; margin: 0 auto; }
-.screen.active { display: block; animation: fade .35s ease; }
+.screen.active { width: 100%; display: flex; justify-content: center; animation: fade .35s ease; }
 .screen.wide { max-width: 1240px; }
 @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
@@ -61,7 +61,7 @@ body {
   box-shadow: var(--shadow);
   padding: 40px;
 }
-.card.narrow { max-width: 680px; margin: 0 auto; }
+.card.narrow { width: min(1050px, calc(100vw - 4rem)); max-width: 1050px; margin: 0 auto; }
 .card.center { text-align: center; }
 
 .eyebrow {
@@ -92,9 +92,9 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: 1.9rem; margin: 0 0
 .qlist { margin-top: 8px; }
 .question {
   border: 1px solid var(--line); border-radius: 12px;
-  padding: 20px 22px; margin: 0 0 16px; background: #fcfdfe;
+  padding: 12px 22px 18px; margin: 0 0 18px; background: #fcfdfe;
 }
-.question legend { font-weight: 600; padding: 0; margin-bottom: 12px; }
+.question legend { font-weight: 700; font-size: 1.5rem; line-height: 1.3; padding: 0; margin-bottom: 6px; }
 .qnum {
   display: inline-grid; place-items: center; width: 24px; height: 24px;
   background: var(--accent); color: #fff; border-radius: 50%;
@@ -103,7 +103,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: 1.9rem; margin: 0 0
 .option {
   display: flex; align-items: flex-start; gap: 10px;
   padding: 9px 12px; border: 1px solid var(--line); border-radius: 9px;
-  margin: 8px 0; cursor: pointer; background: #fff; transition: border-color .12s, background .12s;
+  margin: 6px 0; cursor: pointer; background: #fff; transition: border-color .12s, background .12s;
 }
 .option:hover { border-color: #c4d3df; background: #f7fafc; }
 .option input { margin-top: 4px; accent-color: var(--accent); }
