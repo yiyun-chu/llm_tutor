@@ -6,7 +6,6 @@ window.Study = (function () {
 
   let videoEl = null;
   let triggered = [];
-  let lastTime = 0;
   let currentSectionId = null;
 
   const videoTime = () => (videoEl ? +videoEl.currentTime.toFixed(2) : null);
@@ -27,11 +26,37 @@ window.Study = (function () {
     videoEl.addEventListener("pause", () => vlog("pause"));
     videoEl.addEventListener("ratechange", () => vlog("ratechange", { rate: videoEl.playbackRate }));
     videoEl.addEventListener("ended", () => { vlog("ended"); document.getElementById("next").disabled = false; });
-    videoEl.addEventListener("seeking", () => Logger.log("video_seek", { from_sec: +lastTime.toFixed(2), to_sec: videoTime() }));
 
+    let lastSteady = 0;      // last position during NORMAL (non-seeking) playback
     let lastHeartbeat = 0;
+
+    // A completed seek is the reliable moment to capture from -> to. lastSteady
+    // is the pre-drag position (timeupdate is ignored while seeking, so drag
+    // positions never overwrite it).
+    videoEl.addEventListener("seeked", () => {
+      const to = videoEl.currentTime;
+      const from = lastSteady;
+      const delta = +(to - from).toFixed(2);
+      if (Math.abs(delta) >= 0.5) {
+        Logger.log("video_seek", {
+          from_sec: +from.toFixed(2), to_sec: +to.toFixed(2),
+          delta_sec: delta, direction: delta > 0 ? "forward" : "back",
+        });
+        // boundaries between from and to were jumped over, not watched
+        CT.VIDEO_SECTIONS.forEach((s, i) => {
+          if (!triggered[i] && to >= s.endSec) {
+            triggered[i] = true;
+            Logger.log("section_boundary_skipped_seek", { section_index: i, section_id: s.id });
+          }
+        });
+      }
+      lastSteady = to;
+    });
+
     videoEl.addEventListener("timeupdate", () => {
       const t = videoEl.currentTime;
+      if (videoEl.seeking) return;   // ignore positions while a seek is in progress
+
       if (t - lastHeartbeat >= C.VIDEO_HEARTBEAT_SEC) { lastHeartbeat = t; vlog("progress"); }
 
       const sec = CT.VIDEO_SECTIONS.find((s) => t >= s.startSec && t < s.endSec);
@@ -41,15 +66,12 @@ window.Study = (function () {
         Logger.log("section_enter", { section_id: sid, video_time_sec: +t.toFixed(2) });
       }
 
-      const jumped = (t - lastTime) > 2.0;
+      // normal-playback boundary crossings trigger the assistant (conditions 2/3)
       CT.VIDEO_SECTIONS.forEach((s, i) => {
-        if (!triggered[i] && t >= s.endSec) {
-          triggered[i] = true;
-          if (jumped) Logger.log("section_boundary_skipped_seek", { section_index: i, section_id: s.id });
-          else Chat.onSectionBoundary(i);
-        }
+        if (!triggered[i] && t >= s.endSec) { triggered[i] = true; Chat.onSectionBoundary(i); }
       });
-      lastTime = t;
+
+      lastSteady = t;
     });
   }
 
