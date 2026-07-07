@@ -30,22 +30,66 @@ window.Study = (function () {
     // inside such a gesture so those spurious events can be suppressed, and
     // the seek itself is only logged once (debounced) after the gesture ends.
     let seekGestureActive = false;
-    let seekAnchor = null;    // position captured at the start of the gesture
+    let seekAnchor = null;    // pre-jump position captured at the start of the gesture
     let seekDebounce = null;
     const SEEK_DEBOUNCE_MS = 250;
 
-    videoEl.addEventListener("play", () => { if (!seekGestureActive) vlog("play"); });
-    videoEl.addEventListener("pause", () => { if (!seekGestureActive) vlog("pause"); });
-    videoEl.addEventListener("ratechange", () => { if (!seekGestureActive) vlog("ratechange", { rate: videoEl.playbackRate }); });
-    videoEl.addEventListener("ended", () => { vlog("ended"); document.getElementById("next").disabled = false; });
+    // lastSteady is the best-known "real" playback position, refreshed via
+    // requestAnimationFrame (~60fps) rather than the "timeupdate" event
+    // (which the spec only guarantees firing a few times per second). That
+    // matters here because lastSteady is used as the pre-jump anchor for
+    // seeks and segment boundaries - if it were allowed to lag behind by
+    // even a couple of seconds, a seek starting mid-lag would be logged
+    // from the stale lagged position instead of where playback actually was.
+    let lastSteady = 0;
+    (function trackPosition() {
+      if (!videoEl.paused && !videoEl.seeking && !seekGestureActive) {
+        lastSteady = videoEl.currentTime;
+      }
+      requestAnimationFrame(trackPosition);
+    })();
 
-    let lastSteady = 0;      // last position during NORMAL (non-seeking) playback
-    let lastHeartbeat = 0;
+    // segmentStart marks where the current uninterrupted watching segment
+    // began. It's cleared (segment closed out + logged) whenever playback
+    // is interrupted - by pause, by a seek, or by reaching the end - and
+    // reopened wherever playback next resumes from. This replaces periodic
+    // "heartbeat" progress logs with one row per continuously-watched span.
+    let segmentStart = null;
+    const MIN_LOG_SPAN_SEC = 0.5;   // ignore near-zero-length segments/seeks as noise
+
+    function closeSegment(reason, endPos) {
+      if (segmentStart === null) return;
+      const from = segmentStart;
+      segmentStart = null;
+      if (Math.abs(endPos - from) < MIN_LOG_SPAN_SEC) return;
+      Logger.log("video_progress", {
+        from_sec: +from.toFixed(2), to_sec: +endPos.toFixed(2),
+        duration_sec: +(endPos - from).toFixed(2), reason,
+      });
+    }
+
+    videoEl.addEventListener("play", () => {
+      if (seekGestureActive) return;
+      vlog("play");
+      if (segmentStart === null) segmentStart = videoEl.currentTime;
+    });
+    videoEl.addEventListener("pause", () => {
+      if (seekGestureActive) return;
+      vlog("pause");
+      closeSegment("pause", videoEl.currentTime);
+    });
+    videoEl.addEventListener("ratechange", () => { if (!seekGestureActive) vlog("ratechange", { rate: videoEl.playbackRate }); });
+    videoEl.addEventListener("ended", () => {
+      vlog("ended");
+      closeSegment("ended", videoEl.currentTime);
+      document.getElementById("next").disabled = false;
+    });
 
     videoEl.addEventListener("seeking", () => {
       if (!seekGestureActive) {
         seekGestureActive = true;
-        seekAnchor = lastSteady;   // pre-drag position, captured once per gesture
+        seekAnchor = lastSteady;             // pre-jump position for this gesture
+        closeSegment("seek", lastSteady);    // whatever was being watched just got interrupted
       }
     });
 
@@ -58,7 +102,7 @@ window.Study = (function () {
         const to = videoEl.currentTime;
         const from = seekAnchor;
         const delta = +(to - from).toFixed(2);
-        if (Math.abs(delta) >= 0.5) {
+        if (Math.abs(delta) >= MIN_LOG_SPAN_SEC) {
           Logger.log("video_seek", {
             from_sec: +from.toFixed(2), to_sec: +to.toFixed(2),
             delta_sec: delta, direction: delta > 0 ? "forward" : "back",
@@ -74,6 +118,7 @@ window.Study = (function () {
         lastSteady = to;
         seekGestureActive = false;
         seekAnchor = null;
+        segmentStart = to;   // new watching segment begins where the seek landed
       }, SEEK_DEBOUNCE_MS);
     });
 
@@ -81,8 +126,9 @@ window.Study = (function () {
       const t = videoEl.currentTime;
       if (videoEl.seeking || seekGestureActive) return;   // ignore positions during/just after a seek gesture
 
-      if (t - lastHeartbeat >= C.VIDEO_HEARTBEAT_SEC) { lastHeartbeat = t; vlog("progress"); }
-
+      // section detection/triggering only needs "a few times per second"
+      // granularity, so the native timeupdate cadence is fine here - only
+      // position *tracking* (lastSteady) moved to the rAF loop above.
       const sec = CT.VIDEO_SECTIONS.find((s) => t >= s.startSec && t < s.endSec);
       const sid = sec ? sec.id : null;
       if (sid !== currentSectionId) {
@@ -94,8 +140,6 @@ window.Study = (function () {
       CT.VIDEO_SECTIONS.forEach((s, i) => {
         if (!triggered[i] && t >= s.endSec) { triggered[i] = true; Chat.onSectionBoundary(i); }
       });
-
-      lastSteady = t;
     });
   }
 
