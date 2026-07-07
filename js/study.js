@@ -22,40 +22,64 @@ window.Study = (function () {
     triggered = CT.VIDEO_SECTIONS.map(() => false);
 
     const vlog = (t, extra = {}) => Logger.log("video_" + t, { video_time_sec: videoTime(), ...extra });
-    videoEl.addEventListener("play", () => vlog("play"));
-    videoEl.addEventListener("pause", () => vlog("pause"));
-    videoEl.addEventListener("ratechange", () => vlog("ratechange", { rate: videoEl.playbackRate }));
+
+    // A drag/scrub gesture fires several seeking/seeked pairs in a row (the
+    // browser re-buffers at each intermediate point), and it can also fire
+    // real "pause"/"play" events as a side effect of seeking through an
+    // unbuffered region. seekGestureActive tracks whether we're currently
+    // inside such a gesture so those spurious events can be suppressed, and
+    // the seek itself is only logged once (debounced) after the gesture ends.
+    let seekGestureActive = false;
+    let seekAnchor = null;    // position captured at the start of the gesture
+    let seekDebounce = null;
+    const SEEK_DEBOUNCE_MS = 250;
+
+    videoEl.addEventListener("play", () => { if (!seekGestureActive) vlog("play"); });
+    videoEl.addEventListener("pause", () => { if (!seekGestureActive) vlog("pause"); });
+    videoEl.addEventListener("ratechange", () => { if (!seekGestureActive) vlog("ratechange", { rate: videoEl.playbackRate }); });
     videoEl.addEventListener("ended", () => { vlog("ended"); document.getElementById("next").disabled = false; });
 
     let lastSteady = 0;      // last position during NORMAL (non-seeking) playback
     let lastHeartbeat = 0;
 
-    // A completed seek is the reliable moment to capture from -> to. lastSteady
-    // is the pre-drag position (timeupdate is ignored while seeking, so drag
-    // positions never overwrite it).
-    videoEl.addEventListener("seeked", () => {
-      const to = videoEl.currentTime;
-      const from = lastSteady;
-      const delta = +(to - from).toFixed(2);
-      if (Math.abs(delta) >= 0.5) {
-        Logger.log("video_seek", {
-          from_sec: +from.toFixed(2), to_sec: +to.toFixed(2),
-          delta_sec: delta, direction: delta > 0 ? "forward" : "back",
-        });
-        // boundaries between from and to were jumped over, not watched
-        CT.VIDEO_SECTIONS.forEach((s, i) => {
-          if (!triggered[i] && to >= s.endSec) {
-            triggered[i] = true;
-            Logger.log("section_boundary_skipped_seek", { section_index: i, section_id: s.id });
-          }
-        });
+    videoEl.addEventListener("seeking", () => {
+      if (!seekGestureActive) {
+        seekGestureActive = true;
+        seekAnchor = lastSteady;   // pre-drag position, captured once per gesture
       }
-      lastSteady = to;
+    });
+
+    // Multiple seeked events can fire per gesture; only the last one (after
+    // events stop arriving for SEEK_DEBOUNCE_MS) reflects where the user
+    // actually released the scrubber, so that's the only one we log.
+    videoEl.addEventListener("seeked", () => {
+      clearTimeout(seekDebounce);
+      seekDebounce = setTimeout(() => {
+        const to = videoEl.currentTime;
+        const from = seekAnchor;
+        const delta = +(to - from).toFixed(2);
+        if (Math.abs(delta) >= 0.5) {
+          Logger.log("video_seek", {
+            from_sec: +from.toFixed(2), to_sec: +to.toFixed(2),
+            delta_sec: delta, direction: delta > 0 ? "forward" : "back",
+          });
+          // boundaries between from and to were jumped over, not watched
+          CT.VIDEO_SECTIONS.forEach((s, i) => {
+            if (!triggered[i] && to >= s.endSec) {
+              triggered[i] = true;
+              Logger.log("section_boundary_skipped_seek", { section_index: i, section_id: s.id });
+            }
+          });
+        }
+        lastSteady = to;
+        seekGestureActive = false;
+        seekAnchor = null;
+      }, SEEK_DEBOUNCE_MS);
     });
 
     videoEl.addEventListener("timeupdate", () => {
       const t = videoEl.currentTime;
-      if (videoEl.seeking) return;   // ignore positions while a seek is in progress
+      if (videoEl.seeking || seekGestureActive) return;   // ignore positions during/just after a seek gesture
 
       if (t - lastHeartbeat >= C.VIDEO_HEARTBEAT_SEC) { lastHeartbeat = t; vlog("progress"); }
 
