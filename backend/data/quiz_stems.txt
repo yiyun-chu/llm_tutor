@@ -4,3 +4,19 @@
 #
 # 1. <pre/post-test question text, no options needed, no correct answer>
 # 2. ...
+
+1. Pre-test Q1: Among the elements Ge, Br, Sr, and Sb, which has the largest atomic radius?
+2. Pre-test Q2: The ions Na⁺, Mg²⁺, O²⁻, and F⁻ are isoelectronic (all have 10 electrons). Order them from smallest to largest radius. Which sequence is correct (smallest → largest)?
+3. Pre-test Q3: Copper emits blue light with a wavelength of 480 nm when heated in a flame. What is the frequency of this light? (c = 3.00 × 10⁸ m/s)
+4. Pre-test Q4: Light source A directed at a piece of calcium metal ejects no electrons, while light source B ejects electrons. Which statement correctly explains why light source A fails to eject electrons?
+5. Pre-test Q5: What is the maximum number of electrons that a 5f subshell can hold?
+6. Post-test Q1: The first seven ionization energies (kJ/mol) for a neutral element are: IE₁ = 1012, IE₂ = 1907, IE₃ = 2914, IE₄ = 4964, IE₅ = 6274, IE₆ = 21267, IE₇ = 25431. The large jump occurs after the 5th ionization. Identify the element.
+7. Post-test Q2: Order the elements Ca, Cl, Ge, and S from lowest to highest first ionization energy. Which sequence is correct (lowest → highest)?
+8. Post-test Q3: Which of the following second-period elements has the highest first ionization energy?
+9. Post-test Q4: Which of the following pairs of elements would have the most similar chemical properties?
+10. Post-test Q5: A microwave oven produces electromagnetic waves with a frequency of 2.5 GHz. What is the wavelength of these microwaves? (c = 3.00 × 10⁸ m/s)
+11. Post-test Q6: A high-band 5G cell phone transmission consists of electromagnetic waves with a frequency of 25 GHz. What is the wavelength of this transmission? (c = 3.00 × 10⁸ m/s)
+12. Post-test Q7: Which of the following statements about the Bohr model of the atom is FALSE?
+13. Post-test Q8: Which of the following sets of quantum numbers (n, l, mₗ, mₛ) is NOT possible?
+14. Post-test Q9: What is the ground-state electron configuration of chromium (Cr, Z = 24)?
+15. Post-test Q10: Which of the following statements about the rules governing electron configurations is TRUE?
