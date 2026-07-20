@@ -1,3 +1,13 @@
+---
+title: LLM Tutor
+emoji: 🎓
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Video Learning + AI Tutor — Experiment Platform
 
 A participant-facing study that runs as **separate, forward-only pages**:
