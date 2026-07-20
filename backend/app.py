@@ -15,8 +15,11 @@ Run locally:
     export QWEN_API_KEY=hf_your_token
     export QWEN_BASE_URL=https://router.huggingface.co/v1
     export QWEN_MODEL=Qwen/Qwen3.5-4B:featherless-ai
-    # Qwen3.6 thinks by default; <think> is stripped automatically. To also tell
-    # the provider not to think: export QWEN_EXTRA_BODY='{"chat_template_kwargs":{"enable_thinking":false}}'
+    # Qwen3.6 thinks by default, which eats into QWEN_MAX_TOKENS before the
+    # visible reply is generated (this was truncating responses), so thinking
+    # is disabled by default here. Any leftover <think> tags are also
+    # stripped automatically as a safety net. To re-enable thinking:
+    # export QWEN_ENABLE_THINKING=true
     uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 
 The API key NEVER leaves this server. The frontend only talks to these endpoints.
@@ -41,7 +44,7 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 QWEN_API_KEY  = os.getenv("QWEN_API_KEY", "") or os.getenv("HF_TOKEN", "")
 QWEN_BASE_URL = os.getenv("QWEN_BASE_URL", "https://router.huggingface.co/v1")
 QWEN_MODEL    = os.getenv("QWEN_MODEL", "Qwen/Qwen3.5-4B:featherless-ai")
-QWEN_MAX_TOKENS = int(os.getenv("QWEN_MAX_TOKENS", "220"))
+QWEN_MAX_TOKENS = int(os.getenv("QWEN_MAX_TOKENS", "600"))
 MODEL_PATH    = os.getenv("SURVIVAL_MODEL_PATH", "./model/survival_model.pkl")
 CORS_ORIGINS  = os.getenv("CORS_ORIGINS", "*").split(",")
 
@@ -50,11 +53,14 @@ CORS_ORIGINS  = os.getenv("CORS_ORIGINS", "*").split(",")
 #   QWEN_EXTRA_BODY='{"chat_template_kwargs": {"enable_thinking": false}}'
 # (On Alibaba DashScope use '{"enable_thinking": false}' instead.)
 try:
-    # Check for simple boolean flag first
-    if os.getenv("QWEN_disable_think"):
-        QWEN_EXTRA_BODY = {"chat_template_kwargs": {"enable_thinking": False}}
+    if os.getenv("QWEN_EXTRA_BODY"):
+        QWEN_EXTRA_BODY = json.loads(os.getenv("QWEN_EXTRA_BODY"))
+    elif os.getenv("QWEN_ENABLE_THINKING", "false").lower() in ("1", "true", "yes"):
+        QWEN_EXTRA_BODY = None
     else:
-        QWEN_EXTRA_BODY = json.loads(os.getenv("QWEN_EXTRA_BODY", "") or "null")
+        # Thinking tokens eat into QWEN_MAX_TOKENS before the visible reply is
+        # generated, which was truncating responses. Disabled by default.
+        QWEN_EXTRA_BODY = {"chat_template_kwargs": {"enable_thinking": False}}
 except Exception:
     QWEN_EXTRA_BODY = None
 
