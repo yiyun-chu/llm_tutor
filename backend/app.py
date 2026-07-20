@@ -14,7 +14,7 @@ Run locally:
     # Hugging Face Inference Providers (your case):
     export QWEN_API_KEY=hf_your_token
     export QWEN_BASE_URL=https://router.huggingface.co/v1
-    export QWEN_MODEL=Qwen/Qwen3.6-27B:featherless-ai
+    export QWEN_MODEL=Qwen/Qwen3.5-4B:featherless-ai
     # Qwen3.6 thinks by default; <think> is stripped automatically. To also tell
     # the provider not to think: export QWEN_EXTRA_BODY='{"chat_template_kwargs":{"enable_thinking":false}}'
     uvicorn app:app --host 0.0.0.0 --port 8000 --reload
@@ -41,6 +41,7 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 QWEN_API_KEY  = os.getenv("QWEN_API_KEY", "") or os.getenv("HF_TOKEN", "")
 QWEN_BASE_URL = os.getenv("QWEN_BASE_URL", "https://router.huggingface.co/v1")
 QWEN_MODEL    = os.getenv("QWEN_MODEL", "Qwen/Qwen3.5-4B:featherless-ai")
+QWEN_MAX_TOKENS = int(os.getenv("QWEN_MAX_TOKENS", "220"))
 MODEL_PATH    = os.getenv("SURVIVAL_MODEL_PATH", "./model/survival_model.pkl")
 CORS_ORIGINS  = os.getenv("CORS_ORIGINS", "*").split(",")
 
@@ -49,7 +50,11 @@ CORS_ORIGINS  = os.getenv("CORS_ORIGINS", "*").split(",")
 #   QWEN_EXTRA_BODY='{"chat_template_kwargs": {"enable_thinking": false}}'
 # (On Alibaba DashScope use '{"enable_thinking": false}' instead.)
 try:
-    QWEN_EXTRA_BODY = json.loads(os.getenv("QWEN_EXTRA_BODY", "") or "null")
+    # Check for simple boolean flag first
+    if os.getenv("QWEN_disable_think"):
+        QWEN_EXTRA_BODY = {"chat_template_kwargs": {"enable_thinking": False}}
+    else:
+        QWEN_EXTRA_BODY = json.loads(os.getenv("QWEN_EXTRA_BODY", "") or "null")
 except Exception:
     QWEN_EXTRA_BODY = None
 
@@ -189,7 +194,12 @@ def chat(inp: ChatIn):
     messages += [{"role": m.role, "content": m.content} for m in inp.messages]
 
     try:
-        kwargs = dict(model=QWEN_MODEL, messages=messages, temperature=0.4, max_tokens=600)
+        kwargs = dict(
+            model=QWEN_MODEL,
+            messages=messages,
+            temperature=0.4,
+            max_tokens=QWEN_MAX_TOKENS,
+        )
         if QWEN_EXTRA_BODY:
             kwargs["extra_body"] = QWEN_EXTRA_BODY
         resp = _client.chat.completions.create(**kwargs)
