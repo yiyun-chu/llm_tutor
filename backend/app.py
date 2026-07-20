@@ -110,7 +110,9 @@ def build_system_prompt() -> str:
         "encourage them to reason it through and offer a conceptual hint instead.\n"
         "2. Never write the student's answers for them or do their assessment work.\n"
         "3. Stay on the lecture's topics; gently redirect off-topic requests.\n"
-        "4. Always keep the response short and concise, keep it less than 150 words.\n"
+        "4. Always keep the response under 120 words, as 2-4 short sentences or "
+        "at most one short bullet list. Do not use section headers. Pick ONE "
+        "analogy or example, not several.\n"
         "5. Be concise, warm, and encouraging.\n\n"
         f"TRANSCRIPT:\n{transcript}"
         f"{quiz_block}"
@@ -123,8 +125,10 @@ def append_jsonl(path: pathlib.Path, rows: List[Dict[str, Any]]) -> None:
                 f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
 # Qwen3.6 "thinks" by default, emitting <think>...</think>. Strip it so the
-# student only sees the final answer. Handles both the full pair and the case
-# where only a trailing </think> is present.
+# student only sees the final answer. Handles the full pair, a trailing
+# </think> with no opening tag, and an *unterminated* <think> (the completion
+# hit max_tokens before finishing its reasoning, so there is no real answer
+# after it — drop it rather than leak partial reasoning to the student).
 import re
 _THINK = re.compile(r"<think>.*?</think>", re.DOTALL)
 def strip_think(text: str) -> str:
@@ -133,7 +137,27 @@ def strip_think(text: str) -> str:
     text = _THINK.sub("", text)
     if "</think>" in text and "<think>" not in text:
         text = text.split("</think>")[-1]
+    elif "<think>" in text:
+        text = text.split("<think>")[0]
     return text.strip()
+
+_SENTENCE_END = re.compile(r"[.!?:](?:[\"')\]]*)(?:\s|$)")
+def enforce_word_limit(text: str, max_words: int = 150) -> str:
+    """Hard safety net: models don't reliably obey a word-count instruction,
+    and a completion can also get cut off mid-sentence by max_tokens. Cap at
+    max_words, then trim any dangling fragment back to the last complete
+    sentence so a reply never ends mid-thought."""
+    words = text.split()
+    truncated = " ".join(words[:max_words]) if len(words) > max_words else text
+
+    matches = list(_SENTENCE_END.finditer(truncated))
+    if not matches:
+        return text if len(words) <= max_words else truncated.rstrip() + "…"
+
+    complete_end = matches[-1].end()
+    if complete_end >= len(truncated.rstrip()):
+        return truncated.strip()  # already ends cleanly, nothing to trim
+    return truncated[:complete_end].strip()
 
 # --------------------------------------------------------------------------- #
 # Schemas
@@ -209,7 +233,7 @@ def chat(inp: ChatIn):
         if QWEN_EXTRA_BODY:
             kwargs["extra_body"] = QWEN_EXTRA_BODY
         resp = _client.chat.completions.create(**kwargs)
-        reply = strip_think(resp.choices[0].message.content)
+        reply = enforce_word_limit(strip_think(resp.choices[0].message.content), max_words=120)
         usage = getattr(resp, "usage", None)
         usage_d = {"prompt_tokens": usage.prompt_tokens,
                    "completion_tokens": usage.completion_tokens} if usage else None
